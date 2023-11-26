@@ -1,6 +1,8 @@
-FROM maven:3.8.2-jdk-11 AS build
+FROM adoptopenjdk:17-jdk-hotspot AS build
+WORKDIR /app
 COPY . .
 RUN mvn clean package -Pprod -DskipTests
-FROM openjdk:11-jdk-slim
-COPY --from=build /target/DogsManagementSystem-0.0.1-SNAPSHOT.jar /DogsManagementSystem.jar
-CMD ["java", "-jar", "DogsManagementSystem.jar"]
+
+FROM adoptopenjdk:17-jdk-slim
+COPY --from=build /app/target/DogsManagementSystem-0.0.1-SNAPSHOT.jar /DogsManagementSystem.jar
+CMD ["java", "-jar", "/DogsManagementSystem.jar"]
