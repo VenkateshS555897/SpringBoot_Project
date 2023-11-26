@@ -14,7 +14,7 @@
 	<name>DogManagementSystem</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -82,5 +82,12 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+	<profiles>
+		<profile>
+			<id>prod</id>
+			<!-- Configuration for the 'prod' profile -->
+			<!-- Add necessary configurations here -->
+		</profile>
+		<!-- Other profiles might be listed here -->
+	</profiles>
 </project>
